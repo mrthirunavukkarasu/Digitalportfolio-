@@ -1,0 +1,115 @@
+<html>
+<head>
+    <style>
+#container{
+background-image:url("https://th.bing.com/th/id/OIP.CkyrNqu0NaVGrVlwKrSh0QHaFg?pid=ImgDet&w=203&h=151&c=7&dpr=1.3");
+width:100%;
+height:100%;
+}
+ 
+        /* Internal CSS code for styling the website */
+        /* Add some style for the profile container and image */
+        #profile-container {
+            width: 150px;
+            height: 150px;
+            margin: 10px auto;
+            border: 2px solid #dadada;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        #profileImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+#image_contact
+{
+border radius: 10%;
+width:5%;
+height:5%;
+}
+    </style>
+</head>
+<body text="yellow">
+    <div id="container">
+        <div id="header">
+            <h1>My Personal Portfolio</h1>
+        </div>
+        <div id="content">
+            <div id="about">
+                <h2>About Me</h2>
+                <p>I am Thiru, I,want to become a one of the Business man. I am 21 years old. <br>I complete my degree at Government art college autonomous karur.
+My qualification is B.Sc computer science.<br> I wish to become Frontend developer. </p>
+                <!-- Add a profile container and an input element for the profile photo -->
+                <div id="profile-container">
+                    <!-- Use a default image as the background -->
+                    <img id="profileImage" src="C:\Users\haris\OneDrive\Desktop\Thiru.jpg" />
+                </div>
+                <!-- Use the accept attribute to specify the allowed file types -->
+                <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture accept="image/*">
+            </div>
+            <div id="skills">
+                <h2>My Skills</h2>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div id="contact">
+                <h2>Contact Me</h2>
+                <p><a href="https://www.instagram.com/?hl=en">
+<img id="image_contact" src="https://th.bing.com/th/id/OIP.NUFU5mhqhqOr82Ge-CwjawHaHv?w=182&h=191&c=7&r=0&o=5&dpr=1.3&pid=1.7"></a>
+ <a href="https://www.facebook.com/"><img id="image_contact" src="https://th.bing.com/th/id/OIP.hGaetDAQWapgIJbIOhPhXwHaHa?w=196&h=196&c=7&r=0&o=5&dpr=1.3&pid=1.7"></a></p>
+            </div>
+        </div>
+        <div id="footer">
+            <a href="#" id="download">Download My CV</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code for adding functionality to the website
+        // Get the download button element
+        var download = document.getElementById("download");
+        // Add a click event listener to the download button
+        download.addEventListener("click", function() {
+            // Create a link element
+            var link = document.createElement("a");
+            // Set the link attributes
+            link.href = "my-cv.pdf"; // The URL of the file to download
+            link.download = "my-cv.pdf"; // The name of the file to download
+            // Append the link to the document body
+            document.body.appendChild(link);
+            // Click the link to trigger the download
+            link.click();
+            // Remove the link from the document body
+            document.body.removeChild(link);
+        });
+
+        // Get the profile image element
+        var profileImage = document.getElementById("profileImage");
+        // Get the file input element
+        var imageUpload = document.getElementById("imageUpload");
+        // Add a change event listener to the file input element
+        imageUpload.addEventListener("change", function() {
+            // Get the selected file
+            var file = this.files[0];
+            // Check if the file is an image
+            if (file && file.type.match("image.*")) {
+                // Create a file reader object
+                var reader = new FileReader();
+                // Set an onload event listener for the file reader object
+                reader.onload = function(e) {
+                    // Update the profile image source with the file data
+                    profileImage.src = e.target.result;
+                };
+                // Read the file as a data URL
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
